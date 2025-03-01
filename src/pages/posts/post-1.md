@@ -1,5 +1,6 @@
 ---
-title: 'My First Post'
+layout: ../../layouts/PostLayout.astro
+title: 'My Firstillionth Post!'
 pubDate: 2022-07-01
 description: 'This is the first post of my new Astro site.'
 author: 'nelailen'
@@ -8,9 +9,6 @@ image:
     alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["astro", "blogging", "learning in public"]
 ---
-# My First Post
-
-Published on: 2022-07-01
 
 Welcome to my _new site_ about learning Astro! Here, I will share my learning journey as I build a new website.
 

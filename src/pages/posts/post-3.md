@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/PostLayout.astro
 title: My Third Post
 author: nelailen
 description: "I had some challenges, but asking in the community really helped!"
