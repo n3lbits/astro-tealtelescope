@@ -1,9 +1,7 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-const pageTitle = "me";
+import BaseLayout from '../layouts/BaseLayout.astro';
 
+const pageTitle = "me";
 const identity = {
   firstName: "nicole",
   country: "THE USA",
@@ -21,37 +19,28 @@ const interestColor = "aqua";
 const fontWeight = "bolder";
 const textCase = "uppercase";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-      <style define:vars={{interestColor, fontWeight, textCase}}>
-        h1 {
-          color: purple;
-          font-size: 4rem;
-        }
-
-        .interest {
-          color: var(--interestColor);
-          font-weight: var(--fontWeight);
-          text-transform: var(--textCase);
-        }
-      </style>
-	</head>
+<BaseLayout pageTitle={pageTitle}>
 
 	<body>
-    <Header />
+    <style define:vars={{interestColor, fontWeight, textCase}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+
+      .interest {
+        color: var(--interestColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
     <h1>{pageTitle}</h1>
 		<h2>Who am i?</h2>
     <h3>nelailen, i am!</h3>
 
     <h2>What is this place?</h2>
 
-    <h3>... and why does it look so bad?</h3>
+    <h3>...and why does it look so bad?</h3>
   
     <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the ten thousandth one I built myself!</p>
   
@@ -76,9 +65,5 @@ const textCase = "uppercase";
 
     {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 
-<Footer />
-<script>
-      import "../scripts/menu.js"
-    </script>
   </body>
-</html>
+</BaseLayout>
