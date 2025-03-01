@@ -1,4 +1,7 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+import '../styles/global.css';
 const pageTitle = "me";
 
 const identity = {
@@ -14,9 +17,9 @@ const happy = true;
 const finished = false;
 const goal = 3;
 
-const interestColor = "aquamarine";
-const fontWeight = "bold";
-const textCase = "mixedcase";
+const interestColor = "aqua";
+const fontWeight = "bolder";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -26,11 +29,19 @@ const textCase = "mixedcase";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+    <style define:vars={{interestColor, fontWeight, textCase}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .interest {
+      color: var(--interestColor);
+      font-weight: var(--fontWeight);
+      text-transform: var(--textCase);
+    </style>
 	</head>
 	<body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Writings</a>
+<Navigation />
     <h1>{pageTitle}</h1>
 		<h2>Who am i?</h2>
     <h3>nelailen, i am!</h3>
