@@ -1,6 +1,6 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 ---
 
@@ -13,7 +13,7 @@ import '../styles/global.css';
 		<title>Astro</title>
 	</head>
 	<body>
-<Navigation />
+<Header />
     <h1>My Astro Learning Blog</h1>
     <p>This is where I will post about my journey learning Astro...again. Stay tuned!</p>
     <h2>Recents</h2>
@@ -22,6 +22,9 @@ import '../styles/global.css';
       <li><a href="/posts/post-2/">Post 2</a></li>
       <li><a href="/posts/post-3/">Post 3</a></li>
     </ul>
-  </body>
+    <Footer />
+    <script>
+      import "../scripts/menu.js"
+    </script>
 	</body>
 </html>
