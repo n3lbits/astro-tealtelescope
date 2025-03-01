@@ -1,7 +1,16 @@
 ---
+
 ---
 <div class="hamburger">
   <span class="line"></span>
   <span class="line"></span>
   <span class="line"></span>
 </div>
+
+<script>const hamburger = document.querySelectorAll('.hamburger');
+  hamburger.forEach (hamburger => {  
+    hamburger.addEventListener('click', (event) => {
+      hamburger.classList.toggle("open");
+    });
+  });
+  </script>
