@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/PostLayout.astro
 title: Be Like Walter
 author: nelailen
 description: "This post will show up on its own!"
