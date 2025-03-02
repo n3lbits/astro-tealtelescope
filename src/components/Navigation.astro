@@ -1,11 +1,126 @@
 ---
 ---
-<div class="nav-links">
-<a href="/">../</a>
-<a href="/about/">Me</a>
-<a href="/blog/">Writings</a>
-<a href="#">Scratch</a>
-<a href="#">Projects</a>
-<a href="#">etc</a>
-<a href="/tags/">Tags</a>
-</div>
+<nav>
+  <ul>
+    <li> <a href="/">../</a></li>
+    <li> <a href="/about/">Me</a></li>
+    <li> <a href="/blog/">Writings</a></li>
+    <li> <a href="#">Scratch</a></li>
+    <li> <a href="#">Projects</a></li>
+    <li> <a href="#">etc</a></li>
+    <li> <a href="/tags/">Tags</a></li>
+  </ul>
+</nav>
+
+<style>
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: static;
+  background-color: var(--main-bg);
+  border-bottom: 1px dotted var(--gray-light);
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+@media all and (min-width: 800px) {
+  nav {
+      border: 2px dotted var(--gray-light);
+      background-color: var(--main-bg);
+      width: 150px;
+      position: fixed;
+      z-index: 100;
+      top: 4rem;
+      left: 4rem;
+      margin-bottom: 0;
+  }
+}
+nav ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+@media all and (min-width: 1300px) {
+  nav ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+nav li {
+  width: 50%;
+}
+@media all and (min-width: 1300px) {
+  nav li {
+    width: 100%;
+  }
+}
+nav li:nth-child(1n + 3) {
+  border-top: 2px solid;
+}
+nav li:nth-child(odd) {
+  border-right: 2px solid;
+}
+@media all and (min-width: 1300px) {
+  nav li:nth-child(odd) {
+      border-right: none;
+  }
+}
+@media all and (min-width: 1300px) {
+  nav li + li {
+    border-top: 2px solid;
+  }
+}
+nav a {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  padding: 1em;
+  line-height: 1;
+  font-size: .9rem;
+}
+@media all and (min-width: 1300px) {
+  nav a {
+    font-size: 1rem;
+    padding: 1.2em;
+  }
+}
+nav a:after {
+  font-family: var(--font-family-secondary);
+  content: "→";
+  display: block;
+  margin-left: auto;
+  padding-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+@media all and (min-width: 1300px) {
+  nav a:after {
+    font-size: 1.5rem;
+  }
+}
+nav a[href^="#"]:after {
+  content: "↴";
+}
+nav a:hover {
+  background-color: var(--transwhite);
+  color: var(--accent);
+}
+</style>

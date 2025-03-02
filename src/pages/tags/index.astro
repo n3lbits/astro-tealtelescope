@@ -7,29 +7,95 @@ const pageTitle = "Tag Index";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <section class="container">
   <div class="tags">
     {tags.map((tag) => (
       <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
     ))}
   </div>
+  </section>
 </BaseLayout>
 
 <style>
   a {
     color: #00539F;
   }
-
+.container {
+  width: 100%;
+  border: 0.4rem solid hsl(var(--neon-blue));
+  padding: 1.5em;
+  margin-top: 2em;
+  background-color: hsl(var(--dark-blue));
+  -o-border-image: var(--border-image);
+  border-image: var(--border-image);
+}
   .tags {
     display: flex;
     flex-wrap: wrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 1.5em auto;
+    font-size: 0.8em;
+    text-align: center;
   }
 
   .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
+    border: 0.2rem solid hsl(var(--very-light-blue));
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 15%;
+  background: hsl(var(--dark-blue));
+  -webkit-box-shadow: 0 0 1.2rem hsla(var(--neon-blue), 0.3),
+    0.1rem 0.1rem 1.2rem hsla(var(--neon-blue), 0.3),
+    -0.1rem 0.1rem 1.2rem hsla(var(--neon-blue), 0.3),
+    0.1rem -0.1rem 1.2rem hsla(var(--neon-blue), 0.3),
+    -0.1rem -0.1rem 1.2rem hsla(var(--neon-blue), 0.3),
+    0 0 1.5rem hsla(var(--neon-blue), 0.4) inset,
+    0.1rem 0.1rem 1.5rem hsla(var(--neon-blue), 0.2) inset,
+    -0.1rem 0.1rem 1.5rem hsla(var(--neon-blue), 0.2) inset,
+    0.1rem -0.1rem 1.5rem hsla(var(--neon-blue), 0.2) inset,
+    -0.1rem -0.1rem 1.5rem hsla(var(--neon-blue), 0.2) inset;
+  box-shadow: 0 0 1.2rem hsla(var(--neon-blue), 0.3),
+    0.1rem 0.1rem 1.2rem hsla(var(--neon-blue), 0.3),
+    -0.1rem 0.1rem 1.2rem hsla(var(--neon-blue), 0.3),
+    0.1rem -0.1rem 1.2rem hsla(var(--neon-blue), 0.3),
+    -0.1rem -0.1rem 1.2rem hsla(var(--neon-blue), 0.3),
+    0 0 1.5rem hsla(var(--neon-blue), 0.4) inset,
+    0.1rem 0.1rem 1.5rem hsla(var(--neon-blue), 0.2) inset,
+    -0.1rem 0.1rem 1.5rem hsla(var(--neon-blue), 0.2) inset,
+    0.1rem -0.1rem 1.5rem hsla(var(--neon-blue), 0.2) inset,
+    -0.1rem -0.1rem 1.5rem hsla(var(--neon-blue), 0.2) inset;
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+
+.tag:nth-child(3n) {
+  -webkit-transform: rotate(8deg);
+  transform: rotate(8deg);
+}
+
+.tag:nth-child(2n + 2) {
+  -webkit-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+
+.tag:hover {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-animation: flicker 0.4s linear;
+  animation: flicker 0.4s linear;
+}
+
+.tag:first-child h2::before,
+.tag:first-child h2::after {
   }
 </style>
