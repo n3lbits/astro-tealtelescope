@@ -1,8 +1,112 @@
 ---
-import Hamburger from './Hamburger.astro';
-import ThemeIcon from './ThemeIcon.astro';
+import Hamburger from './Hamburger.astro'
+import ThemeIcon from './ThemeIcon.astro'
 ---
+
 <header>
+  <div class='container'>
     <Hamburger />
-    <ThemeIcon />
+  </div>
+
+  <ThemeIcon />
 </header>
+<style>
+  header {
+    background-color: var(--main-bg);
+    border-bottom: 1px solid var(--transwhite);
+    width: 100%;
+    position: sticky;
+    height: 55px;
+    left: 0;
+    top: 0;
+    z-index: 100;
+  }
+
+  header .container {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    padding: 1em;
+  }
+  @media all and (min-width: 1300px) {
+    header .container {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      padding: 0;
+      text-align: left;
+    }
+  }
+  header .container h1 {
+    font-size: 1.5rem;
+  }
+  header .container h2 {
+    font-size: 1.25rem;
+  }
+  header .container p {
+    font-size: 1rem;
+  }
+  @media all and (min-width: 1300px) {
+    header .container h1,
+    header .container h2,
+    header .container p {
+      font-size: 1rem;
+      padding: 1em 1.5em;
+      line-height: 1;
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+    }
+  }
+  header .container p a {
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid;
+  }
+  header .container p a:hover {
+    border-width: 4px;
+  }
+  header .container > * + * {
+    margin-top: 0.5em;
+  }
+  @media all and (min-width: 1300px) {
+    header .container > * + * {
+      margin-top: 0;
+      border-left: 4px solid;
+    }
+  }
+  header .link-github {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+</style>

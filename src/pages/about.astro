@@ -1,69 +1,120 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle = "me";
+const pageTitle = 'me';
 const identity = {
-  firstName: "nicole",
-  country: "THE USA",
-  occupation: "cybersecurity",
-  hobbies: ["photography", "birdwatching", "horticulture", "hiking"],
+  firstName: 'nicole',
+  country: 'THE USA',
+  occupation: 'cybersecurity',
+  hobbies: ['photography', 'birdwatching', 'horticulture', 'hiking'],
 };
 
-const interests = ["fresh black cherries", "nonograms", "finding old things", "mechanical pencils"];
+const interests = [
+  'fresh black cherries',
+  'nonograms',
+  'finding old things',
+  'mechanical pencils',
+];
 
 const happy = true;
 const finished = false;
 const goal = 3;
 
-const interestColor = "aqua";
-const fontWeight = "bolder";
-const textCase = "uppercase";
+const interestColor = 'aqua';
+const fontWeight = 'bolder';
+const textCase = 'uppercase';
 ---
-<BaseLayout pageTitle={pageTitle}>
 
-	<body>
-    <style define:vars={{interestColor, fontWeight, textCase}}>
+<BaseLayout pageTitle={pageTitle}>
+  <body>
+    <style define:vars={{ interestColor, fontWeight, textCase }}>
       h1 {
         color: purple;
         font-size: 4rem;
       }
+      .post-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: start;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
 
+      .hero {
+      }
+      ul {
+        margin: 1rem;
+      }
+      a {
+        text-decoration: none;
+        color: #00539f;
+      }
       .interest {
         color: var(--interestColor);
         font-weight: var(--fontWeight);
         text-transform: var(--textCase);
       }
     </style>
-    <h1>{pageTitle}</h1>
-		<h2>Who am i?</h2>
-    <h3>nelailen, i am!</h3>
+    <section class='post-wrapper'>
+      <div class='hero'>
+        <h1>{pageTitle}</h1>
+      </div>
 
-    <h2>What is this place?</h2>
+      <section class='about'>
+        <h2>Who am i?</h2>
+        <h4>nelailen, i am!</h4>
 
-    <h3>...and why does it look so bad?</h3>
-  
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the ten thousandth one I built myself!</p>
-  
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-  
-    <h2>Here are a few bits about me:</h2>
-      <ul>
-        <li>My name is {identity.firstName}.</li>
-        <li>I live in {identity.country} and I am engaged in {identity.occupation}.</li>
-        {identity.hobbies.length >= 3 &&
-          <li>My hobbies include: {identity.hobbies[0]}, {identity.hobbies[1]} and {identity.hobbies[2]}</li>
+        <h2>What is this place?</h2>
+
+        <h4>...and why does it look so bad?</h4>
+
+        <p>
+          I am working through Astro's introductory tutorial. This is the second
+          page on my website, and it's the ten thousandth one I built myself!
+        </p>
+
+        <p>
+          This site will update as I complete more of the tutorial, so keep
+          checking back and see how my journey is going!
+        </p>
+
+        <h2>Here are a few bits about me:</h2>
+        <ul>
+          <li>My name is {identity.firstName}.</li>
+          <li>
+            I live in {identity.country} and I am engaged in {
+              identity.occupation
+            }.
+          </li>
+          {
+            identity.hobbies.length >= 3 && (
+              <li>
+                My hobbies include: {identity.hobbies[0]}, {identity.hobbies[1]}{' '}
+                and {identity.hobbies[2]}
+              </li>
+            )
+          }
+        </ul>
+        <h3>And Here are some things I enjoy:</h3>
+        <ul>
+          {interests.map((interest) => <li class='interest'>{interest}</li>)}
+        </ul>
+
+        {happy && <p>I am happy to be learning Astro!</p>}
+
+        {finished && <p>I finished this tutorial!</p>}
+
+        {
+          goal === 3 ? (
+            <p>My goal is to finish in 3 days.</p>
+          ) : (
+            <p>My goal is not 3 days.</p>
+          )
         }
-      </ul>
-  <h3>And Here are some things I enjoy:</h3>
-  <ul>
-    {interests.map((interest) => <li class="interest">{interest}</li>)}
-  </ul>
-
-    {happy && <p>I am happy to be learning Astro!</p>}
-
-    {finished && <p>I finished this tutorial!</p>}
-
-    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-
+      </section>
+    </section>
   </body>
 </BaseLayout>

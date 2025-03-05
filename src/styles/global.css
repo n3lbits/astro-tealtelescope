@@ -62,19 +62,33 @@
 
 @font-face {
 	font-family: 'Hack';
-	src: url('/fonts/hack-regular-subset.woff2') format('woff');
+	src: url('/fonts/hack-regular-subset.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Linik Sans';
-	src: url('/fonts/LinikSans-regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
+  font-family: 'Linik Sans Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Linik Sans Regular'), url('LinikSans-Regular.woff') format('woff');
+  }
+  
+
+  @font-face {
+  font-family: 'Linik Sans Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Linik Sans Italic'), url('LinikSans-Italic.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Linik Sans Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Linik Sans Bold'), url('LinikSans-Bold.woff') format('woff');
+    }
 
 @font-face {
 	font-family: 'Rubik';
@@ -121,7 +135,7 @@ svg {
 
 /* Natural flow and rhythm in articles by default */
 section > * + * {
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -217,7 +231,7 @@ html.dark {
 
 /* Set core body defaults */
 body {
-  font-family: 'Linik Sans', sans-serif;
+  font-family: 'Hack', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
@@ -228,16 +242,10 @@ body {
 }
 
 main {
-	width: 800px;
 	max-width: 100%;
-  display: flex;
-	margin: 0 200px;
-	padding: 3em 1em;
-  text-align: left;
-  overflow-wrap: break-word;
-  box-sizing: border-box;
-  flex-direction: column;
-  height: 100vh;
+  display: block;
+	margin: 0;
+  min-height: 100vh;
 }
 
 h1 {
@@ -271,107 +279,8 @@ h5 {
 	font-size: 1.25em;
 }
 
-header {
-  background-color: var(--main-bg);
-  border-bottom: 1px solid var(--transwhite);
-  width: 100%;
-}
-@media all and (min-width: 1300px) {
-  header {
-    position: fixed;
-    height:45px;
-    left: 0;
-    top: 0;
-    z-index: 100;
-  }
-}
-header .container {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-  padding: 1em;
-}
-@media all and (min-width: 1300px) {
-  header .container {
-     -webkit-box-orient: horizontal;
-     -webkit-box-direction: normal;
-     -ms-flex-direction: row;
-     flex-direction: row;
-     -ms-flex-wrap: wrap;
-     flex-wrap: wrap;
-     -webkit-box-align: stretch;
-     -ms-flex-align: stretch;
-     align-items: stretch;
-     -webkit-box-pack: start;
-     -ms-flex-pack: start;
-     justify-content: flex-start;
-     padding: 0;
-     text-align: left;
-  }
-}
-header .container h1 {
-  font-size: 1.5rem;
-}
-header .container h2 {
-  font-size: 1.25rem;
-}
-header .container p {
-  font-size: 1rem;
-}
-@media all and (min-width: 1300px) {
-  header .container h1,
-  header .container h2,
-  header .container p {
-     font-size: 1rem;
-     padding: 1em 1.5em;
-     line-height: 1;
-     -webkit-box-flex: 1;
-     -ms-flex-positive: 1;
-     flex-grow: 1;
-  }
-}
-header .container p a {
-  text-decoration: none;
-  font-weight: 600;
-  border-bottom: 2px solid;
-}
-header .container p a:hover {
-  border-width: 4px;
-}
-header .container > * + * {
-  margin-top: 0.5em;
-}
-@media all and (min-width: 1300px) {
-  header .container > * + * {
-     margin-top: 0;
-     border-left: 4px solid;
-  }
-}
-header .link-github {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
-  padding: 0.5em 1em;
-  text-decoration: none;
-  font-size: 1rem;
-}
+
+
 /* nav styles */
 
 .hamburger {

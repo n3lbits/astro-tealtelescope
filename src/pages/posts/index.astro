@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Post from '../../components/Post.astro';
+
+const pageTitle = 'My Astro Learning Blog';
+const allPosts = await getCollection('posts');
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <body>
+    <section class='post-wrapper'>
+      <div class='hero'>
+        <h1>My Astrocity</h1>
+        <h2>My awesome blog subtitle</h2>
+        <p id='quote'></p>
+      </div>
+
+      <section class='list-content'>
+        <h2>Recent posts</h2>
+        <ul>
+          {
+            allPosts.map((post) => (
+              <Post url={`/posts/${post.id}/`} title={post.data.title} />
+            ))
+          }
+        </ul>
+      </section>
+    </section>
+  </body>
+</BaseLayout>
+
+<style>
+  .post-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .hero {
+    padding: 1rem;
+  }
+  a {
+    text-decoration: none;
+    color: #00539f;
+  }
+
+  .list-content {
+    padding-top: 1.6rem;
+    padding-inline: 1rem;
+  }
+</style>

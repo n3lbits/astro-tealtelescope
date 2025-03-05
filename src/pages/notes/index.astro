@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Categories from '../../components/Categories.astro';
+import Note from '../../components/Note.astro';
+
+type Note = CollectionEntry<'notes'>;
+const notes = await getCollection('notes');
+const pageTitle = 'Notes off the Brain';
+const categories = [...new Set(notes.map((note: Note) => note.data.category))];
+
+const sortedNotes = notes.sort(
+  (a: Note, b: Note) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <body>
+    <section class='post-wrapper'>
+      <div class='hero'>
+        <h1>Notes</h1>
+        <h3>Short, quick thoughts, ideas and other stuff</h3>
+      </div>
+      <Categories
+        categories={categories}
+        currentPath={Astro.url.pathname}
+        basePath='notes'
+      />
+      <section class='list-content'>
+        <h2>Recent Notes</h2>
+        <ul>
+          {
+            sortedNotes.map((note) => (
+              <Note
+                url={`/notes/${note.id}/`}
+                title={note.data.title}
+                description={note.data.description}
+                date={note.data.pubDate}
+              />
+            ))
+          }
+        </ul>
+      </section>
+    </section>
+  </body>
+</BaseLayout>
+
+<style>
+  .post-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .list-content {
+    margin: 1rem;
+  }
+  ul {
+    margin: 1rem;
+  }
+</style>
